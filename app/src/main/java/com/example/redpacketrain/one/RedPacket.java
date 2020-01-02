@@ -1,4 +1,4 @@
-package com.example.redpacketrain;
+package com.example.redpacketrain.one;
 
 import android.content.Context;
 import android.graphics.Bitmap;

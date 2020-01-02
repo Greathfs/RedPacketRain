@@ -32,7 +32,7 @@
         android:text="中奖金额:"
         android:textSize="18sp" />
 
-    <com.example.redpacketrain.RedPacketView
+    <com.example.redpacketrain.one.RedPacketView
         android:id="@+id/red_packets_view1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

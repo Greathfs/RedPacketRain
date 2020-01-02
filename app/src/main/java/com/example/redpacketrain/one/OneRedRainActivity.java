@@ -1,4 +1,4 @@
-package com.example.redpacketrain;
+package com.example.redpacketrain.one;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -9,8 +9,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.redpacketrain.R;
 
-public class RedRainActivity extends AppCompatActivity implements View.OnClickListener {
+
+public class OneRedRainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private RedPacketView redRainView;
     private Button start, stop;
@@ -23,7 +25,7 @@ public class RedRainActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_red_rain);
 
-        ab = new AlertDialog.Builder(RedRainActivity.this);
+        ab = new AlertDialog.Builder(OneRedRainActivity.this);
         start = (Button) findViewById(R.id.start);
         stop = (Button) findViewById(R.id.stop);
         money = (TextView) findViewById(R.id.money);

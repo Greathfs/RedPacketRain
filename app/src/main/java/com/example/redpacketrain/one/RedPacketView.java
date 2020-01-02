@@ -1,4 +1,4 @@
-package com.example.redpacketrain;
+package com.example.redpacketrain.one;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
@@ -11,9 +11,10 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.LinearInterpolator;
 
 import androidx.annotation.Nullable;
+
+import com.example.redpacketrain.R;
 
 import java.util.ArrayList;
 import java.util.Random;
