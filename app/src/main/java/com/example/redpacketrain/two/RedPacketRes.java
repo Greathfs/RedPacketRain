@@ -1,4 +1,4 @@
-package com.example.redpacketrain.second;
+package com.example.redpacketrain.two;
 
 
 import com.example.redpacketrain.R;

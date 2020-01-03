@@ -1,4 +1,4 @@
-package com.example.redpacketrain.second;
+package com.example.redpacketrain.two;
 
 /**
  * Created on 2018/1/26.

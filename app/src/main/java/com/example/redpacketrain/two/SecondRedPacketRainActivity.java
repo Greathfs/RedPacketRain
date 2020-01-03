@@ -1,4 +1,4 @@
-package com.example.redpacketrain.second;
+package com.example.redpacketrain.two;
 
 import androidx.appcompat.app.AppCompatActivity;
 

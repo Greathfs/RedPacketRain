@@ -7,7 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.redpacketrain.one.OneRedRainActivity;
-import com.example.redpacketrain.second.SecondRedPacketRainActivity;
+import com.example.redpacketrain.two.SecondRedPacketRainActivity;
+import com.example.redpacketrain.three.ThreeRedPacketRainActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,4 +26,8 @@ public class MainActivity extends AppCompatActivity {
     public void second(View view) {
         startActivity(new Intent(this, SecondRedPacketRainActivity.class));
     }
+    public void three(View view) {
+        startActivity(new Intent(this, ThreeRedPacketRainActivity.class));
+    }
+
 }

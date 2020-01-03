@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -16,7 +18,7 @@ public class OneRedRainActivity extends AppCompatActivity implements View.OnClic
 
     private RedPacketView redRainView;
     private Button start, stop;
-    private TextView money;
+    private WebView mWebView;
     private int totalmoney = 0;
     AlertDialog.Builder ab;
 
@@ -28,8 +30,15 @@ public class OneRedRainActivity extends AppCompatActivity implements View.OnClic
         ab = new AlertDialog.Builder(OneRedRainActivity.this);
         start = (Button) findViewById(R.id.start);
         stop = (Button) findViewById(R.id.stop);
-        money = (TextView) findViewById(R.id.money);
         redRainView = (RedPacketView) findViewById(R.id.red_packets_view1);
+        mWebView = findViewById(R.id.web_view);
+        // 设置支持JavaScript
+        WebSettings webSettings = mWebView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+
+        // 加载网页
+        mWebView.loadUrl("https://www.baidu.com/");
+
         start.setOnClickListener(this);
         stop.setOnClickListener(this);
     }
@@ -61,8 +70,6 @@ public class OneRedRainActivity extends AppCompatActivity implements View.OnClic
 
                 if (redPacket.isRealRed) {
                     ab.setMessage("恭喜你，抢到了" + redPacket.money + "元！");
-                    totalmoney += redPacket.money;
-                    money.setText("中奖金额: " + totalmoney);
                 } else {
                     ab.setMessage("很遗憾，下次继续努力！");
                 }

@@ -1,4 +1,4 @@
-package com.example.redpacketrain.second;
+package com.example.redpacketrain.two;
 
 /**
  * 飞行物(设计待完善，需要考虑到某些飞行物可以转换（比如红包boom会变成爆炸物，也可能变成礼包）。
