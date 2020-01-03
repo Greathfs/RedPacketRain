@@ -24,7 +24,7 @@ public class RedPacketView extends View {
     private static final Random RANDOM = new Random();
 
     private int[] mImgIds = new int[]{
-            R.mipmap.img_red_packet_big, R.mipmap.img_red_packet_middle, R.mipmap.img_red_packet_small, R.mipmap.img_red_packet_3
+            R.mipmap.ic_gold_big, R.mipmap.ic_red_packet_middle, R.mipmap.ic_red_packet_small
     };//红包图片
     private int count;//红包数量
     private int speed;//下落速度

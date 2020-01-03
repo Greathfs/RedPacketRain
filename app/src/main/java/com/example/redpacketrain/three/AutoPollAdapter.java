@@ -1,5 +1,6 @@
 package com.example.redpacketrain.three;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import java.util.List;
  * description AutoPollAdapter
  */
 public class AutoPollAdapter extends RecyclerView.Adapter<AutoPollAdapter.BaseViewHolder> {
+    private static final String TAG = "AutoPollAdapter";
     private final List<String> mData;
 
     public AutoPollAdapter(List<String> list) {
@@ -33,7 +35,6 @@ public class AutoPollAdapter extends RecyclerView.Adapter<AutoPollAdapter.BaseVi
     @Override
     public void onBindViewHolder(BaseViewHolder holder, int position) {
         String data = mData.get(position % mData.size());
-        holder.tv.setText(data);
     }
 
     @Override
@@ -42,10 +43,8 @@ public class AutoPollAdapter extends RecyclerView.Adapter<AutoPollAdapter.BaseVi
     }
 
     class BaseViewHolder extends RecyclerView.ViewHolder{
-        TextView tv;
         public BaseViewHolder(View itemView) {
             super(itemView);
-            tv = itemView.findViewById(R.id.tv_content);
         }
     }
 }

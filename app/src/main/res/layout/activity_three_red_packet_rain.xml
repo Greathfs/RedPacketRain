@@ -3,12 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00000000">
-
-    <WebView
-        android:id="@+id/web_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+    android:background="#80000000">
 
     <ImageView
         android:layout_width="match_parent"
@@ -31,5 +26,5 @@
     <com.example.redpacketrain.three.AutoPollRecyclerView
         android:id="@+id/rv_auto_poll"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"/>
 </RelativeLayout>
