@@ -1,11 +1,10 @@
 package com.example.redpacketrain.three;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.redpacketrain.R;
@@ -17,24 +16,32 @@ import java.util.List;
  * @date 2020-01-03
  * description AutoPollAdapter
  */
-public class AutoPollAdapter extends RecyclerView.Adapter<AutoPollAdapter.BaseViewHolder> {
+public class AutoPollAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static final String TAG = "AutoPollAdapter";
-    private final List<String> mData;
+    private final List<RedPacketBean> mData;
 
-    public AutoPollAdapter(List<String> list) {
+    public AutoPollAdapter(List<RedPacketBean> list) {
         this.mData = list;
     }
 
     @Override
-    public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        if (viewType == RedPacketBean.TYPE_EMPTY) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_auto_poll_empty, parent, false);
+            return new EmptyViewHolder(view);
+        }
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_auto_poll, parent, false);
-        BaseViewHolder holder = new BaseViewHolder(view);
-        return holder;
+        return new NormalViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(BaseViewHolder holder, int position) {
-        String data = mData.get(position % mData.size());
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position == 1500 ? RedPacketBean.TYPE_EMPTY : RedPacketBean.TYPE_NORMAL;
     }
 
     @Override
@@ -42,8 +49,14 @@ public class AutoPollAdapter extends RecyclerView.Adapter<AutoPollAdapter.BaseVi
         return mData.size();
     }
 
-    class BaseViewHolder extends RecyclerView.ViewHolder{
-        public BaseViewHolder(View itemView) {
+    class NormalViewHolder extends RecyclerView.ViewHolder {
+        public NormalViewHolder(View itemView) {
+            super(itemView);
+        }
+    }
+
+    class EmptyViewHolder extends RecyclerView.ViewHolder{
+        public EmptyViewHolder(View itemView) {
             super(itemView);
         }
     }

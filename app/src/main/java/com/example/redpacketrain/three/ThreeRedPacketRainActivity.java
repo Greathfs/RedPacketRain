@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.redpacketrain.FullScreenDialog;
 import com.example.redpacketrain.R;
 
 import java.util.ArrayList;
@@ -25,9 +26,6 @@ import java.util.List;
 public class ThreeRedPacketRainActivity extends AppCompatActivity {
 
     private WebView mWebView;
-    private Button mStart;
-    private Button mStop;
-    private AutoPollRecyclerView mRvAutoPoll;
 
 
     @Override
@@ -36,22 +34,6 @@ public class ThreeRedPacketRainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_three_red_packet_rain);
 
         mWebView = findViewById(R.id.web_view);
-        mStart = findViewById(R.id.start);
-        mStop = findViewById(R.id.stop);
-
-        mStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mRvAutoPoll.start();
-            }
-        });
-
-        mStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mRvAutoPoll.stop();
-            }
-        });
 
         mWebView = findViewById(R.id.web_view);
         // 设置支持JavaScript
@@ -61,29 +43,14 @@ public class ThreeRedPacketRainActivity extends AppCompatActivity {
         // 加载网页
         mWebView.loadUrl("https://www.baidu.com/");
 
-        initView();
+        FullScreenDialog dialog = new FullScreenDialog(this);
+        dialog.show();
     }
 
-    private void initView() {
-        mRvAutoPoll = findViewById(R.id.rv_auto_poll);
-        List<String> list = new ArrayList<>();
-        for (int i = 0; i < 3000; ) {
-            list.add(" Item: " + ++i);
-        }
-        mRvAutoPoll.setLayoutManager(new LinearLayoutManager(this));
-        AutoPollAdapter adapter = new AutoPollAdapter(list);
-        mRvAutoPoll.setAdapter(adapter);
-        mRvAutoPoll.scrollToPosition(1500);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mRvAutoPoll.stop();
-    }
 
     /**
      * 设置页面的透明度
+     *
      * @param bgAlpha 1表示不透明
      */
     public static void setBackgroundAlpha(Activity activity, float bgAlpha) {
